@@ -1,0 +1,24 @@
+{
+  "name": "stack-deploy",
+  "version": 2,
+  "builds": [
+    {
+      "src": "www/next.config.js",
+      "use": "@now/next"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/www/$1"
+    }
+  ]
+}
